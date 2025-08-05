@@ -1,19 +1,43 @@
 import { Request, Response } from "express";
 
- export const home = (req: Request, res: Response) =>{
-    res.send('Home no controller')
-    //res.render('pages/page')
+import { createMenuObject } from '../helpers/createMenuObject'
+
+export const home = (req: Request, res: Response) => {
+    res.render('pages/page', {
+        menu: createMenuObject('all'),
+        banner: {
+            title: 'Todos os animais',
+            background: 'allanimals.jpg'
+        }
+    })
 }
 
-export const cats = (req: Request, res: Response) =>{
-    res.send('Cats funcionando')
-    //res.render('pages/cats')
+export const cats = (req: Request, res: Response) => {
+    res.render('pages/page', {
+        menu: createMenuObject('cat'),
+        banner: {
+            title: 'Gatos',
+            background: 'banner_cat.jpg'
+        }
+    })
 }
 
-export const dogs = (req: Request, res: Response) =>{
-    //res.render('pages/dogs')
+export const dogs = (req: Request, res: Response) => {
+    res.render('pages/page', {
+        menu: createMenuObject('dog'),
+        banner: {
+            title: 'Cachorros',
+            background: 'banner_dog.jpg'
+        }
+    })
 }
 
-export const fishes = (req: Request, res: Response) =>{
-    //res.render('pages/fishes')
+export const fishes = (req: Request, res: Response) => {
+    res.render('pages/page', {
+        menu: createMenuObject('fish'),
+        banner: {
+            title: 'Cachorros',
+            background: 'banner_fish.jpg'
+        }
+    })
 }
